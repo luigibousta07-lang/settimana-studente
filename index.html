@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Settimana dello Studente</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F4F6F8;--sf:#fff;--ink:#14202B;--mut:#5B6A78;--ln:#D5DCE3;--blue:#1F5FBF;--yel:#F2B705;--err:#B3261E;--ok:#2E7D4F;--errbg:#FBE9E7;--okbg:#E6F4EA;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--sf:#17212C;--ink:#E8EDF2;--mut:#93A1AE;--ln:#2B3947;--blue:#6FA3F0;--yel:#F2B705;--err:#FF8A80;--ok:#7BD59A;--errbg:#3A1F1D;--okbg:#17301F}}
+:root[data-theme="dark"]{--bg:#0F1720;--sf:#17212C;--ink:#E8EDF2;--mut:#93A1AE;--ln:#2B3947;--blue:#6FA3F0;--yel:#F2B705;--err:#FF8A80;--ok:#7BD59A;--errbg:#3A1F1D;--okbg:#17301F}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Schibsted Grotesk",system-ui,sans-serif}
+header{padding:18px 16px 8px;max-width:1100px;margin:0 auto}
+h1{margin:0;font-size:24px;letter-spacing:-.02em}
+h1 span{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--yel);margin-right:8px;box-shadow:inset -3px -3px 0 rgba(0,0,0,.15)}
+header p{margin:4px 0 0;color:var(--mut)}
+nav{display:flex;gap:4px;overflow-x:auto;padding:8px 16px;max-width:1100px;margin:0 auto;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{flex:none;border:1px solid var(--ln);background:var(--sf);color:var(--ink);padding:7px 12px;border-radius:8px;font:inherit;cursor:pointer}
+nav button[aria-current="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+main{max-width:1100px;margin:0 auto;padding:8px 16px 40px}
+h2{font-size:18px;margin:12px 0 4px}
+.hint{color:var(--mut);margin:0 0 10px}
+.wrap{overflow-x:auto;border:1px solid var(--ln);border-radius:8px;background:var(--sf)}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{border-bottom:1px solid var(--ln);border-right:1px solid var(--ln);padding:0;text-align:left;vertical-align:top}
+th{background:var(--bg);font-weight:500;color:var(--mut);padding:6px 8px;font-size:13px}
+td.t{padding:6px 8px}
+td input,td select{width:100%;min-width:90px;border:0;background:transparent;color:var(--ink);font:inherit;padding:7px 8px}
+td input:focus,td select:focus,.f input:focus,.f select:focus{outline:2px solid var(--blue);outline-offset:-2px}
+.x{border:0;background:transparent;color:var(--err);cursor:pointer;padding:7px 10px;font:inherit}
+.btn{border:0;background:var(--blue);color:#fff;padding:9px 14px;border-radius:8px;font:inherit;cursor:pointer;margin-top:10px}
+.btn.alt{background:var(--sf);color:var(--ink);border:1px solid var(--ln)}
+.msg{padding:9px 12px;border-radius:8px;margin:6px 0}
+.msg.e{background:var(--errbg);color:var(--err)}
+.msg.o{background:var(--okbg);color:var(--ok)}
+.f{display:grid;gap:10px;max-width:460px}
+.f label{display:grid;gap:4px;color:var(--mut);font-size:13px}
+.f input,.f select{border:1px solid var(--ln);border-radius:8px;background:var(--sf);color:var(--ink);font:inherit;padding:9px}
+.eye{display:flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--sf);color:var(--ink);padding:0 8px;border-radius:8px;flex:none}.eye select{border:0;background:transparent;color:var(--ink);font:inherit;padding:7px 2px}
+.pal{display:grid;gap:4px;max-width:340px;margin:6px 0}.sw{height:28px;border:1px solid var(--ln);border-radius:6px;cursor:pointer}
+.cell{padding:6px 8px;font-size:13px}.cell b{display:block}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.chip{border:1px solid var(--ln);border-radius:999px;padding:3px 10px;background:var(--sf)}
+ol.r{padding-left:20px}ol.r li{margin:6px 0}
+nav:empty{display:none}
+@media (min-width:1000px){.gl.g2{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}.gp{position:sticky;top:12px}.gp .pal{max-width:100%}.gp .row .btn{flex:1 1 45%}}
+.eye{width:100%}.eye select{font-size:16px}
+@media (max-width:700px){
+body{font-size:16px}
+header{padding:14px 12px 4px}
+h1{font-size:21px}
+nav{padding:8px 12px}
+nav button{min-height:42px}
+main{padding:8px 12px 80px}
+.btn{min-height:46px}
+.x{min-height:42px}
+td input,td select,.f input,.f select{font-size:16px;min-height:42px}
+th:first-child,td:first-child{position:sticky;left:0;background:var(--sf);z-index:1}
+th:first-child{background:var(--bg)}
+.f{max-width:100%}
+.pal{max-width:100%}.sw{height:36px}
+.row .btn{flex:1 1 40%}
+}
+@media (min-width:1000px){
+body{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:start}
+header{grid-column:1/-1;max-width:none;width:100%;margin:0;padding:20px 32px 8px}
+nav{grid-column:1;flex-direction:column;position:sticky;top:12px;max-width:none;margin:0;padding:8px 12px 24px 32px;max-height:calc(100vh - 24px);overflow-y:auto;background:transparent}
+nav button{text-align:left;width:100%}
+main{grid-column:2;max-width:none;margin:0;padding:8px 32px 48px}
+nav:empty+main{grid-column:1/-1;max-width:640px;margin:0 auto}
+td input,td select{padding:9px 10px}
+.f{max-width:560px}
+.pal{max-width:420px}
+}
+</style>
+</head>
+<body>
+<header><h1><span></span>Settimana dello Studente</h1><p>Versione online <span id="sync"></span></p></header>
+<nav id="nav"></nav>
+<main id="app"></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+var KEY="sds-v1";var DOM="@liceoseneca.bacoli.edu.it";
+var vl=function(v){return (v.attivita||"")+" "+(v.variante||"")};
+var seed={dominio:"",pres:{},
+attivita:[{nome:"Fotografia",descrizione:"Uscita nel cortile",spazio:"Cortile"},{nome:"Coding",descrizione:"Primi passi con Python",spazio:"Aula informatica"}],
+docenti:[{nome:"Rossi",competenze:"Arte",disponibilita:"Tutti i giorni"},{nome:"Bianchi",competenze:"Informatica",disponibilita:"Tutti i giorni"},{nome:"Verdi",competenze:"Lettere",disponibilita:"Lun-Mer"}],
+aule:[{nome:"Aula 1A",capienza:"25",piano:"1"},{nome:"Aula informatica",capienza:"25",piano:"0"},{nome:"Palestra",capienza:"60",piano:"0"}],
+varianti:[{attivita:"Fotografia",variante:"A",giorno:"Lunedì",fascia:"1",aula:"Aula 1A",capienza:"25",supervisore:"Rossi",secondario:"Verdi"},{attivita:"Coding",variante:"A",giorno:"Lunedì",fascia:"1",aula:"Aula informatica",capienza:"25",supervisore:"Bianchi",secondario:""}],
+squadre:[{classe:"1A",gruppo:"Biennio",giocatori:"6",stato:"In gara"},{classe:"3B",gruppo:"Triennio",giocatori:"6",stato:"In gara"},{classe:"2C",gruppo:"Biennio",giocatori:"6",stato:"Eliminata"}],
+partite:[{giorno:"Lunedì",ora:"10:00",campo:"Palestra",a:"1A",b:"3B",punteggio:"",vincitore:""}],
+iscrizioni:[]};
+var st={sess:"",varianti:[],admins:[],iscrizioni:[],wlStudenti:[],wlDocenti:[],docenti:[],attivita:[],scelte:[],pres:{},squadre:[],partite:[],orari:[],celle:{},pub:{},cnt:{},dominio:""};
+if(!st.admins)st.admins=[];if(!st.wlDocenti)st.wlDocenti=[];if(!st.wlStudenti)st.wlStudenti=[];if(!st.scelte)st.scelte=[];if(!st.celle)st.celle={};if(!st.docOk){st.docenti=[];st.docOk=1}st.attivita.forEach(function(a){if(!a.id)a.id="a"+Math.random().toString(36).slice(2,8);if(a.ore==null){a.ore="";a.materiali="";a.distr="Indifferente";a.posti="25";a.docenti=""}});if(!st.classiOk){st.squadre="1A 2A 3A 4A 5A 1B 2B 3B 4B 1C 2C 3C 4C 5C 1D 2D 3D 4D 5D 3F 1S 2S 1E 2E 3E 4E 5E 1M 2M".split(" ").map(function(c){return {classe:c,gruppo:Number(c.charAt(0))<=2?"Biennio":"Triennio",giocatori:"6",stato:"In gara"}});st.classiOk=1}if(!st.orariOk){st.orari=[];["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì"].forEach(function(g){["Biennio","Triennio"].forEach(function(b){var u=g==="Venerdì"?"11:00":(b==="Triennio"||g==="Martedì"||g==="Giovedì")?"14:00":"13:00";st.orari.push({giorno:g,gruppo:b,entrata:"08:00",uscita:u})})});st.orariOk=1}if(!st.admins.length&&st.sess)st.admins=[st.sess];
+var isA=function(){var r=ruolo();return r==="Creatore"||r==="Amministratore"};
+var vista="";var ruolo=function(){var r=ruoloReale();if((r==="Creatore"||r==="Amministratore")&&vista)return vista;return r};var ruoloReale=function(){var e=st.sess;if(!e)return"";if(st.admins[0]===e)return"Creatore";if(st.admins.indexOf(e)>=0)return"Amministratore";var u=st.iscrizioni.filter(function(x){return x.email.toLowerCase()===e})[0];return u&&u.sito==="Docente"?"Docente":"Studente"};
+var can=function(t){
+    return true;
+};
+
+function save(){schedPush()}
+function esc(x){return String(x==null?"":x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+var GIORNI=["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì"];
+var RUOLI=["Partecipante","Giocatore torneo","Studente docente"];
+var dN=function(){return st.docenti.map(function(d){return d.nome})};
+var cN=function(){return st.squadre.map(function(d){return d.classe})};
+var T={
+attivita:["Attività","Ogni attività può avere più varianti (repliche).",[["nome","Nome"],["descrizione","Descrizione"],["spazio","Spazio richiesto"]]],
+varianti:["Varianti","Ogni riga è un gruppo con un’aula, una fascia, un supervisore (responsabile degli alunni) e un docente secondario (conduce l’attività).",[["attivita","Attività","s",function(){return st.attivita.map(function(a){return a.nome})}],["variante","Variante"],["giorno","Giorno","s",GIORNI],["fascia","Fascia","n"],["aula","Aula","s",function(){return st.aule.map(function(a){return a.nome})}],["capienza","Posti (max 25)","n"],["supervisore","Supervisore","s",dN],["secondario","Docente secondario","s",dN]]],
+docenti:["Docenti","",[["nome","Nome"],["competenze","Competenze"],["disponibilita","Disponibilità"]]],
+aule:["Aule e spazi","",[["nome","Nome"],["capienza","Capienza","n"],["piano","Piano"]]],
+squadre:["Squadre","Una per classe, con 6 giocatori. Cambia lo stato dopo ogni partita.",[["classe","Classe"],["gruppo","Gruppo","s",["Biennio","Triennio"]],["giocatori","Giocatori","n"],["stato","Stato","s",["In gara","Eliminata","Non qualificata"]]]],
+partite:["Partite","",[["giorno","Giorno","s",GIORNI],["ora","Ora"],["campo","Campo"],["a","Squadra A","s",cN],["b","Squadra B","s",cN],["punteggio","Punteggio"],["vincitore","Vincitore","s",cN]]],
+orari:["Orari di uscita","Entrata e uscita per gruppo e giorno. Venerdì è lectio brevis: escono tutti alle 11.",[["giorno","Giorno","s",GIORNI],["gruppo","Gruppo","s",["Biennio","Triennio"]],["entrata","Entrata"],["uscita","Uscita"]]],wlDocenti:["Elenco docenti","Nomi ammessi come docenti alla registrazione. Se gli elenchi sono vuoti, la registrazione è libera.",[["nome","Nome e cognome"]]],wlStudenti:["Elenco studenti","Nomi ammessi come studenti alla registrazione.",[["nome","Nome e cognome"]]],iscrizioni:["Registrazioni","Chi si è registrato con nome ed email istituzionale.",[["nome","Nome e cognome"],["email","Email istituzionale"],["classe","Classe"],["ruolo","Ruolo","s",RUOLI],["variante","Variante scelta","s",function(){return st.varianti.map(vl)}]]]
+};
+var TABS=[["orario","Orario"],["griglie","Orario classi"],["scelte","Le mie iscrizioni"],["appelli","Appelli"],["assenze","Assenze"],["torneo","Torneo"],["squadre"],["partite"],["controlli","Controlli"],["regole","Regole"],["attivita"],["docenti"],["wlStudenti"],["admins","Amministratori"]];
+var cur="orario";
+var VIS=[
+"orario",
+"griglie",
+"scelte",
+"appelli",
+"assenze",
+"torneo",
+"squadre",
+"partite",
+"controlli",
+"regole",
+"attivita",
+"docenti",
+"wlStudenti",
+"admins"
+];
+function nav(){
+
+    document.getElementById("nav").innerHTML=
+        TABS.map(function(t){
+            var n=t[1]||t[0];
+            return '<button onclick="go(\''+t[0]+'\')" aria-current="'+(t[0]===cur)+'">'+n+'</button>';
+        }).join("")
+        + (st.sess ? '<button onclick="esci()">Esci</button>' : '');
+}
+function go(t){cur=t;nav();render()}
+function setv(tab,i,k,v){if(!isA())return;st[tab][i][k]=v;save()}
+function addRow(tab){if(!isA())return;var r={};T[tab][2].forEach(function(c){r[c[0]]=""});st[tab].push(r);save();render()}
+function delRow(tab,i){if(!isA())return;st[tab].splice(i,1);save();render()}
+function cell(tab,i,c,v){var k=c[0],t=c[2],o=c[3];
+if(t==="s"){var opts=typeof o==="function"?o():o;return '<select onchange="setv(\''+tab+'\','+i+',\''+k+'\',this.value)"><option value=""></option>'+opts.map(function(x){return '<option'+(x===v?" selected":"")+'>'+esc(x)+'</option>'}).join("")+'</select>'}
+return '<input type="'+(t==="n"?"number":"text")+'" value="'+esc(v)+'" oninput="setv(\''+tab+'\','+i+',\''+k+'\',this.value)">'}
+function table(tab){var d=T[tab],cols=d[2];
+return '<h2>'+d[0]+'</h2><p class="hint">'+d[1]+'</p><div class="wrap"><table><tr>'+cols.map(function(c){return '<th>'+c[1]+'</th>'}).join("")+'<th></th></tr>'+
+st[tab].map(function(r,i){return '<tr>'+cols.map(function(c){return '<td>'+cell(tab,i,c,r[c[0]])+'</td>'}).join("")+'<td><button class="x" aria-label="Elimina riga" onclick="delRow(\''+tab+'\','+i+')">Elimina</button></td></tr>'}).join("")+
+'</table></div><button class="btn" onclick="addRow(\''+tab+'\')">Aggiungi riga</button>'}
+function orario(){var fs=[];st.varianti.forEach(function(v){if(v.fascia&&fs.indexOf(v.fascia)<0)fs.push(v.fascia)});fs.sort(function(a,b){return a-b});
+var h='<h2>Orario</h2><p class="hint">Si compila da solo dalle varianti.</p>'+uscite()+'<div class="wrap"><table style="min-width:720px"><tr><th>Fascia</th>'+GIORNI.map(function(g){return '<th>'+g+'</th>'}).join("")+'</tr>';
+if(!fs.length)return h+'</table></div><p class="hint">Nessuna variante: aggiungine una nella pagina Varianti.</p>';
+fs.forEach(function(f){h+='<tr><td class="t">'+esc(f)+'</td>'+GIORNI.map(function(g){return '<td class="cell">'+st.varianti.filter(function(v){return v.fascia===f&&v.giorno===g}).map(function(v){return '<b>'+esc(vl(v))+'</b>'+esc(v.aula)+(v.supervisore?' · '+esc(v.supervisore):'')}).join("<hr>")+'</td>'}).join("")+'</tr>'});
+return h+'</table></div>'}
+var selV=0;
+function appelliOld(){var vs=st.varianti;if(!vs.length)return '<h2>Appelli</h2><p class="hint">Aggiungi prima una variante.</p>';
+if(selV>=vs.length)selV=0;var lab=vl(vs[selV]);var list=st.scelte.filter(function(x){return x.v===lab}).map(function(x){return st.iscrizioni.filter(function(r){return r.email.toLowerCase()===x.email})[0]}).filter(Boolean);
+return '<h2>Appelli</h2><p class="hint">Scegli un gruppo e segna i presenti.</p><div class="f"><label>Gruppo<select onchange="selV=this.value;render()">'+vs.map(function(v,i){return '<option value="'+i+'"'+(i==selV?" selected":"")+'>'+esc(vl(v))+' – '+esc(v.giorno)+' fascia '+esc(v.fascia)+'</option>'}).join("")+'</select></label></div>'+
+(list.length?'<div class="wrap" style="margin-top:10px"><table style="min-width:320px"><tr><th>Studente</th><th>Classe</th><th>Presente</th></tr>'+list.map(function(r){var k=lab+"|"+r.email;return '<tr><td class="t">'+esc(r.nome)+'</td><td class="t">'+esc(r.classe)+'</td><td class="t"><input type="checkbox" style="width:auto;min-width:0" '+(st.pres[k]?"checked":"")+' onchange="st.pres[\''+esc(k).replace(/'/g,"")+'\']=this.checked;save()"></td></tr>'}).join("")+'</table></div>':'<p class="hint">Nessuno iscritto a questo gruppo.</p>')}
+function torneo(){var out=st.squadre.filter(function(s){return s.stato!=="In gara"}).map(function(s){return s.classe});
+var inG=st.squadre.filter(function(s){return s.stato==="In gara"}).length;
+var free=st.iscrizioni.filter(function(r){return r.ruolo==="Giocatore torneo"&&out.indexOf(r.classe)>=0});if(ruolo()==="Studente")free=free.filter(function(r){return r.email.toLowerCase()===st.sess});
+return '<h2>Torneo</h2><div class="row"><span class="chip">Squadre: '+st.squadre.length+'</span><span class="chip">In gara: '+inG+'</span><span class="chip">Fuori: '+out.length+'</span></div>'+
+'<h2>Giocatori liberati</h2><p class="hint">Giocatori registrati delle squadre eliminate: da qui in poi possono scegliere gli orari riservati a loro.</p>'+
+(free.length?'<div class="wrap"><table style="min-width:360px"><tr><th>Nome</th><th>Email</th><th>Classe</th></tr>'+free.map(function(r){return '<tr><td class="t">'+esc(r.nome)+'</td><td class="t">'+esc(r.email)+'</td><td class="t">'+esc(r.classe)+'</td></tr>'}).join("")+'</table></div>':'<p class="hint">Nessun giocatore liberato per ora.</p>')+
+'<h2>Prossime partite</h2><div class="wrap"><table style="min-width:420px"><tr><th>Quando</th><th>Campo</th><th>Incontro</th><th>Risultato</th></tr>'+st.partite.map(function(p){return '<tr><td class="t">'+esc(p.giorno)+' '+esc(p.ora)+'</td><td class="t">'+esc(p.campo)+'</td><td class="t">'+esc(p.a)+' – '+esc(p.b)+'</td><td class="t">'+esc(p.punteggio||"da giocare")+'</td></tr>'}).join("")+'</table></div>'}
+var regMsg="";
+function registrazione(){return '<h2>Registrazione</h2><p class="hint">Usa il tuo nome, cognome e l’email istituzionale. Chi gioca il torneo non può essere studente docente.</p><div class="f">'+
+'<label>Nome<input id="rn" autocomplete="given-name"></label><label>Cognome<input id="rs" autocomplete="family-name"></label><label>Email istituzionale<input id="re" type="email" placeholder="La tua email"></label><label>Classe<input id="rc"></label><label>Ruolo<select id="rr">'+RUOLI.map(function(r){return '<option>'+r+'</option>'}).join("")+'</select></label>'+
+'<button class="btn" onclick="reg()">Registrati</button></div><div id="rm">'+regMsg+'</div>'}
+function reg(){var n0=document.getElementById("rn").value.trim(),sn=document.getElementById("rs").value.trim(),n=(n0+" "+sn).trim(),e=document.getElementById("re").value.trim().toLowerCase(),c=document.getElementById("rc").value.trim(),r=document.getElementById("rr").value;
+var m=function(t,x){regMsg='<div class="msg '+t+'">'+x+'</div>';render()};
+if(!n0||!sn)return m("e","Scrivi nome e cognome.");
+if(e.indexOf("@")<1||e.indexOf(".",e.indexOf("@"))<0)return m("e","Controlla l’email istituzionale"+(st.dominio?" che finisce con "+esc(st.dominio):"")+".");
+if(!c)return m("e","Indica la classe.");
+var ex=st.iscrizioni.filter(function(x){return x.email.toLowerCase()===e});if(ex.length)return m("e","Questa email è già registrata: usa Accedi.");var nk=function(s){return String(s||"").toLowerCase().replace(/\s+/g," ").trim()};var key=nk(n),inD=st.docenti.some(function(x){return nk(x.nome)===key}),inS=st.wlStudenti.some(function(x){return nk(x.nome)===key}),sito="Studente";if(inD)sito="Docente";else if(!inS&&st.admins.length&&(st.docenti.length||st.wlStudenti.length))return m("e","Il tuo nome non risulta negli elenchi della scuola: contatta un amministratore.");
+if(ex.some(function(x){return (x.ruolo==="Giocatore torneo"&&r==="Studente docente")||(x.ruolo==="Studente docente"&&r==="Giocatore torneo")}))return m("e","Questa email ha già un ruolo incompatibile: torneo e studente docente si escludono.");
+st.iscrizioni.push({nome:n,email:e,classe:c,ruolo:r,sito:sito,variante:""});if(!st.admins.length)st.admins=[e];st.sess=e;cur="orario";regMsg="";save();nav();render()}
+function controlli(){var er=[];
+st.varianti.forEach(function(v){var l=vl(v);
+if(Number(v.capienza)>25)er.push(l+": oltre 25 posti.");
+if(!v.supervisore)er.push(l+": manca il supervisore.");
+if(v.supervisore&&v.supervisore===v.secondario)er.push(l+": supervisore e secondario sono la stessa persona.")});
+var vs=st.varianti;
+for(var i=0;i<vs.length;i++)for(var j=i+1;j<vs.length;j++){var a=vs[i],b=vs[j];if(a.giorno&&a.giorno===b.giorno&&a.fascia===b.fascia){
+if(a.aula&&a.aula===b.aula)er.push(a.aula+" è usata da "+vl(a)+" e "+vl(b)+" nello stesso momento.");
+[a.supervisore,a.secondario].forEach(function(x){if(x&&(x===b.supervisore||x===b.secondario))er.push(x+" è in "+vl(a)+" e "+vl(b)+" nello stesso momento.")})}}
+st.squadre.forEach(function(s){if(Number(s.giocatori)!==6)er.push("Squadra "+s.classe+": i giocatori devono essere 6.")});
+st.partite.forEach(function(p){if(p.campo){var pa=st.varianti.filter(function(v){return v.aula===p.campo&&v.giorno===p.giorno});if(pa.length)er.push("Il campo "+p.campo+" è occupato da "+vl(pa[0])+" ("+p.giorno+").")}});
+st.scelte.forEach(function(s){var u=st.iscrizioni.filter(function(x){return x.email.toLowerCase()===s.email})[0];var v=st.varianti.filter(function(y){return vl(y)===s.v})[0];if(u&&v&&u.ruolo==="Giocatore torneo")st.partite.forEach(function(p){if((p.a===u.classe||p.b===u.classe)&&p.giorno===v.giorno)er.push(u.nome+" gioca il torneo "+p.giorno+" ed è iscritto a "+s.v+".")})});st.partite.forEach(function(p){[p.a,p.b].forEach(function(cl){var sq=st.squadre.filter(function(s){return s.classe===cl})[0];if(!sq||!p.ora||!p.giorno)return;var o=st.orari.filter(function(x){return x.giorno===p.giorno&&x.gruppo===sq.gruppo})[0];if(o&&o.uscita&&p.ora>=o.uscita)er.push("Partita "+p.a+" - "+p.b+" ("+p.giorno+" "+p.ora+"): "+cl+" esce alle "+o.uscita+".")})});var by={};st.iscrizioni.forEach(function(x){var k=x.email.toLowerCase();(by[k]=by[k]||[]).push(x.ruolo)});
+Object.keys(by).forEach(function(k){if(by[k].indexOf("Giocatore torneo")>=0&&by[k].indexOf("Studente docente")>=0)er.push(k+": è giocatore e studente docente insieme.")});
+st.iscrizioni.forEach(function(x){if(x.ruolo==="Giocatore torneo"&&x.variante){var v=st.varianti.filter(function(y){return vl(y)===x.variante})[0];if(v)st.partite.forEach(function(p){if((p.a===x.classe||p.b===x.classe)&&p.giorno===v.giorno)er.push(x.nome+" gioca il torneo "+p.giorno+": controlla la variante "+x.variante+".")})}});
+return '<h2>Controlli</h2><p class="hint">Gli errori si aggiornano a ogni apertura di questa pagina.</p>'+(er.length?er.map(function(x){return '<div class="msg e">'+esc(x)+'</div>'}).join(""):'<div class="msg o">Nessun conflitto trovato.</div>')}
+function regole(){return '<h2>Regole</h2><p class="hint">Linee guida da tenere fisse, per non complicare il calendario.</p><ol class="r"><li>Ogni gruppo ha al massimo 25 alunni.</li><li>Ogni gruppo ha un supervisore, responsabile degli alunni per tutta la fascia.</li><li>Il docente secondario conduce l’attività e non risponde degli alunni.</li><li>Chi gioca il torneo non può essere studente docente, e viceversa.</li><li>Chi non si iscrive a nulla va in un gruppo con altri non iscritti.</li><li>Ogni classe ha 6 giocatori per il torneo.</li><li>Dopo ogni partita, i giocatori eliminati diventano disponibili per gli orari riservati a loro.</li><li>La registrazione è il primo passo: servono nome, cognome ed email (per ora di qualsiasi dominio).</li><li>Quattro ruoli: creatore e amministratori modificano tutto; i docenti vedono orario, appelli, assenze (modificabili) e torneo; gli studenti vedono l’orario, si iscrivono ai gruppi e seguono il torneo.</li><li>Alla registrazione il nome deve comparire negli elenchi docenti o studenti, se compilati.</li><li>Uscite: il biennio alle 14 solo martedì e giovedì, altrimenti alle 13; il triennio alle 14; venerdì (lectio brevis) tutti alle 11.</li></ol>'}
+var modo="reg";
+function accessoOld(){return '<h2>Entra nella Settimana dello Studente</h2><p class="hint">Prima ti registri, poi ogni volta accedi con la tua email istituzionale.</p><div class="row"><button class="btn'+(modo==="reg"?"":" alt")+'" onclick="modo=\'reg\';regMsg=\'\';render()">Registrati</button><button class="btn'+(modo==="login"?"":" alt")+'" onclick="modo=\'login\';regMsg=\'\';render()">Accedi</button></div>'+(modo==="reg"?registrazione():login())}
+function login(){return '<div class="f"><label>Email istituzionale<input id="le" type="email" placeholder="La tua email"></label><button class="btn" onclick="entra()">Accedi</button></div><div id="rm">'+regMsg+'</div>'}
+function entra(){var e=document.getElementById("le").value.trim().toLowerCase();
+if(e.indexOf("@")<1){regMsg='<div class="msg e">Inserisci la tua email.</div>';return render()}
+var u=st.iscrizioni.filter(function(x){return x.email.toLowerCase()===e})[0];
+if(!u){regMsg='<div class="msg e">Email non registrata: vai su Registrati.</div>';return render()}
+if(!st.admins.length)st.admins=[e];st.sess=e;cur="orario";regMsg="";save();nav();render()}
+function amministratori(){return '<h2>Amministratori</h2><p class="hint">Il creatore e gli amministratori possono modificare tutto. Gli altri vedono solo orario e torneo.</p><div class="wrap"><table style="min-width:440px"><tr><th>Nome</th><th>Email</th><th>Ruolo</th><th></th></tr>'+st.iscrizioni.map(function(r){var a=st.admins.indexOf(r.email)>=0,c=st.admins[0]===r.email;return '<tr><td class="t">'+esc(r.nome)+'</td><td class="t">'+esc(r.email)+'</td><td class="t">'+(c?"Creatore":a?"Amministratore":(r.sito||"Studente"))+'</td><td class="t">'+(c?"":'<button class="x" style="color:var(--blue)" onclick="togA(\''+esc(r.email)+'\')">'+(a?"Togli":"Rendi amministratore")+'</button>')+'</td></tr>'}).join("")+'</table></div>'}
+function togAold(e){if(!isA())return;var i=st.admins.indexOf(e);if(i>0)st.admins.splice(i,1);else if(i<0)st.admins.push(e);save();render()}
+function scelteV(){var me=st.sess,mine=st.scelte.filter(function(x){return x.email===me}).map(function(x){return x.v});var rows=st.varianti.map(function(v,i){var l=vl(v),n=st.scelte.filter(function(x){return x.v===l}).length,cap=Number(v.capienza)||25,on=mine.indexOf(l)>=0;return '<tr><td class="t">'+esc(l)+'</td><td class="t">'+esc(v.giorno)+' fascia '+esc(v.fascia)+'</td><td class="t">'+esc(v.aula)+'</td><td class="t">'+n+'/'+cap+'</td><td class="t"><button class="x" style="color:var(--blue)" onclick="togS('+i+')">'+(on?"Annulla":"Iscriviti")+'</button></td></tr>'}).join("");return '<h2>Le mie iscrizioni</h2><p class="hint">Scegli i gruppi. Non puoi iscriverti a due gruppi nella stessa fascia né a gruppi pieni.</p><div class="wrap"><table style="min-width:520px"><tr><th>Gruppo</th><th>Quando</th><th>Aula</th><th>Posti</th><th></th></tr>'+rows+'</table></div>'+(st.scelteMsg||"")}
+function togSV(i){var v=st.varianti[i];if(!v)return;var l=vl(v),me=st.sess,ix=-1;st.scelte.forEach(function(x,k){if(x.email===me&&x.v===l)ix=k});if(ix>=0){st.scelte.splice(ix,1);st.scelteMsg="";save();return render()}
+var n=st.scelte.filter(function(x){return x.v===l}).length;if(n>=(Number(v.capienza)||25)){st.scelteMsg='<div class="msg e">Gruppo pieno.</div>';return render()}
+var clash=st.scelte.some(function(x){if(x.email!==me)return false;var o=st.varianti.filter(function(y){return vl(y)===x.v})[0];return o&&o.giorno===v.giorno&&o.fascia===v.fascia});if(clash){st.scelteMsg='<div class="msg e">Hai già un gruppo in quella fascia.</div>';return render()}
+st.scelte.push({email:me,v:l});st.scelteMsg="";save();render()}
+function appelliV(){var vs=st.varianti;if(!vs.length)return '<h2>Appelli</h2><p class="hint">Aggiungi prima una variante.</p>';if(selV>=vs.length)selV=0;var lab=vl(vs[selV]);var list=st.scelte.filter(function(x){return x.v===lab}).map(function(x){return st.iscrizioni.filter(function(r){return r.email.toLowerCase()===x.email})[0]}).filter(Boolean);
+return '<h2>Appelli</h2><p class="hint">Scegli un gruppo e segna presenti e assenti.</p><div class="f"><label>Gruppo<select onchange="selV=this.value;render()">'+vs.map(function(v,i){return '<option value="'+i+'"'+(i==selV?" selected":"")+'>'+esc(vl(v))+' – '+esc(v.giorno)+' fascia '+esc(v.fascia)+'</option>'}).join("")+'</select></label></div>'+(list.length?'<div class="wrap" style="margin-top:10px"><table style="min-width:360px"><tr><th>Studente</th><th>Classe</th><th>Stato</th></tr>'+list.map(function(r){var k=lab+"|"+r.email.toLowerCase(),s=st.pres[k]===true?"Presente":(st.pres[k]||"");return '<tr><td class="t">'+esc(r.nome)+'</td><td class="t">'+esc(r.classe)+'</td><td><select data-k="'+esc(k)+'" onchange="setP(this.dataset.k,this.value)"><option value=""></option><option'+(s==="Presente"?" selected":"")+'>Presente</option><option'+(s==="Assente"?" selected":"")+'>Assente</option></select></td></tr>'}).join("")+'</table></div>':'<p class="hint">Nessuno iscritto a questo gruppo.</p>')}
+function setP(k,v){if(ruolo()==="Studente")return;st.pres[k]=v;save()}
+function assenze(){var rows=Object.keys(st.pres).filter(function(k){return st.pres[k]==="Assente"}).map(function(k){var i=k.lastIndexOf("|"),lab=k.slice(0,i),em=k.slice(i+1),u=st.iscrizioni.filter(function(x){return x.email.toLowerCase()===em})[0]||{nome:em,classe:""};return '<tr><td class="t">'+esc(u.nome)+'</td><td class="t">'+esc(u.classe)+'</td><td class="t">'+esc((st.attivita.filter(function(a){return a.id===lab})[0]||{nome:lab}).nome)+'</td><td><select data-k="'+esc(k)+'" onchange="setP(this.dataset.k,this.value);render()"><option>Assente</option><option>Presente</option><option value="">Da segnare</option></select></td></tr>'}).join("");return '<h2>Assenze</h2><p class="hint">Docenti e amministratori possono modificarle.</p>'+(rows?'<div class="wrap"><table style="min-width:520px"><tr><th>Studente</th><th>Classe</th><th>Gruppo</th><th>Stato</th></tr>'+rows+'</table></div>':'<p class="hint">Nessuna assenza segnata.</p>')}
+function eye(){var r=ruoloReale();if(r!=="Creatore"&&r!=="Amministratore")return"";return '<label class="eye" title="Vedi il sito come"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><select onchange="setVista(this.value)" aria-label="Vedi il sito come">'+["Amministratore","Docente","Studente"].map(function(x){return '<option'+((vista||"Amministratore")===x?" selected":"")+'>'+x+'</option>'}).join("")+'</select></label>'}
+function setVista(v){vista=v==="Amministratore"?"":v;nav();render()}
+function banner(){if(!vista)return"";return '<div class="msg o" style="display:flex;justify-content:space-between;align-items:center;gap:8px">Stai vedendo il sito come '+vista+'.<button class="btn alt" style="margin:0" onclick="setVista(\'Amministratore\')">Torna amministratore</button></div>'}
+function uscite(){return '<div class="wrap" style="margin-bottom:10px"><table style="min-width:360px"><tr><th>Giorno</th><th>Biennio</th><th>Triennio</th></tr>'+["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì"].map(function(g){function u(b){var o=st.orari.filter(function(x){return x.giorno===g&&x.gruppo===b})[0];return o?esc(o.entrata+" – "+o.uscita):""}return '<tr><td class="t">'+g+'</td><td class="t">'+u("Biennio")+'</td><td class="t">'+u("Triennio")+'</td></tr>'}).join("")+'</table></div>'}
+var BG=[];[0,30,55,120,170,210,260,310].forEach(function(h){[90,80,70,60].forEach(function(l){BG.push("hsl("+h+",70%,"+l+"%)")})});
+var FG=["#111111","#FFFFFF","#C62828","#1565C0","#2E7D32","#EF6C00","#6A1B9A"];
+var gp=[],selC=null;
+function sezioni(){var m={};st.squadre.forEach(function(s){var c=s.classe||"";if(c.length>1){var z=c.slice(1);(m[z]=m[z]||[]).push(c)}});Object.keys(m).forEach(function(z){m[z].sort()});return m}
+function gpGo(i){gp=gp.slice(0,i);selC=null;render()}
+function gpIn(x){gp.push(x);selC=null;render()}
+function crumbs(){var h='<div class="row"><button class="btn alt" style="margin:0" onclick="gpGo(0)">Sezioni</button>';if(gp[0])h+='<span>›</span><button class="btn alt" style="margin:0" onclick="gpGo(1)">Sezione '+esc(gp[0])+'</button>';if(gp[1])h+='<span>›</span><span class="chip">'+esc(gp[1])+'</span>';return h+'</div>'}
+function griglie(){var m=sezioni(),h='<h2>Orario classi</h2>'+crumbs();if(!gp.length){return h+'<p class="hint">Scegli una sezione. Le classi vengono dalla pagina Squadre.</p><div class="row">'+Object.keys(m).sort().map(function(z){return '<button class="btn" data-v="'+esc(z)+'" onclick="gpIn(this.dataset.v)">'+esc(z)+' · '+m[z].length+' classi</button>'}).join("")+'</div>'}
+if(gp.length===1)return h+'<p class="hint">Scegli una classe.</p><div class="row">'+(m[gp[0]]||[]).map(function(c){return '<button class="btn" data-v="'+esc(c)+'" onclick="gpIn(this.dataset.v)">'+esc(c)+'</button>'}).join("")+'</div>';return h+grid(gp[1])}
+function cs(c){return "background:"+(c.bg!=null&&BG[c.bg]?BG[c.bg]:"transparent")+";color:"+((c.fg!=null&&FG[c.fg])||(c.bg!=null?"#111":"inherit"))+";font-weight:"+(c.b?700:400)}
+function grid(cl){var sq=st.squadre.filter(function(s){return s.classe===cl})[0],gr=sq?sq.gruppo:"Triennio",ed=isA(),t='<div class="gl'+(ed?' g2':'')+'"><div>'+bar(cl)+'<div class="wrap"><table style="min-width:560px"><tr><th>Ora</th>'+GIORNI.map(function(d){return '<th>'+d.slice(0,3)+'</th>'}).join("")+'</tr>';
+for(var h=1;h<=6;h++){t+='<tr><th>'+h+'ª<br>'+(7+h)+':00</th>'+GIORNI.map(function(g,di){var o=st.orari.filter(function(x){return x.giorno===g&&x.gruppo===gr})[0],ex=o?parseInt(o.uscita):14;if(7+h>=ex)return '<td style="background:var(--bg)"></td>';var k=cl+"|"+di+"|"+h,c=(ed?st.celle:(st.pub&&st.pub[cl]?st.pub[cl].c:{}))[k]||{};return '<td><input data-k="'+esc(k)+'" value="'+esc(c.t)+'" '+(ed?'':'readonly ')+'style="'+cs(c)+'" onfocus="selK(this)" oninput="setT(this)"></td>'}).join("")+'</tr>'}
+t+='</table></div><p class="hint">Le caselle grigie sono dopo l’uscita della classe.</p></div>';
+if(ed)t+='<div class="msg gp" style="background:var(--sf);border:1px solid var(--ln);color:var(--ink)"><b>Casella: <span id="selL">tocca una casella</span></b><div class="hint">Sfondo (32 colori)</div><div class="pal" style="grid-template-columns:repeat(8,1fr)">'+BG.map(function(b,i){return '<button class="sw" style="background:'+b+'" aria-label="Sfondo '+(i+1)+'" onclick="setS(\'bg\','+i+')"></button>'}).join("")+'</div><div class="hint">Testo (7 colori)</div><div class="pal" style="grid-template-columns:repeat(7,1fr)">'+FG.map(function(f,i){return '<button class="sw" style="background:'+f+'" aria-label="Testo '+(i+1)+'" onclick="setS(\'fg\','+i+')"></button>'}).join("")+'</div><div class="row"><button class="btn alt" style="margin:0" onclick="setS(\'b\')"><b>Grassetto</b></button><button class="btn alt" style="margin:0" onclick="setS(\'bg\',null)">Senza sfondo</button><button class="btn alt" style="margin:0" onclick="setS(\'fg\',null)">Testo predefinito</button><button class="btn alt" style="margin:0" onclick="setS(\'clr\')">Svuota casella</button></div></div>';
+return t+'</div>'}
+function selK(el){selC=el.dataset.k;var l=document.getElementById("selL");if(l){var p=selC.split("|");l.textContent=p[0]+" · "+GIORNI[p[1]]+" · "+p[2]+"ª ora"}}
+function setT(el){if(!isA())return;var k=el.dataset.k,c=st.celle[k]||(st.celle[k]={});c.t=el.value;save();upSt()}
+function setS(w,i){if(!isA()||!selC)return;var c=st.celle[selC]||(st.celle[selC]={});if(w==="b")c.b=!c.b;else if(w==="clr")delete st.celle[selC];else if(i===null||i===undefined)delete c[w];else c[w]=i;save();upSt();var els=document.querySelectorAll("input[data-k]");for(var j=0;j<els.length;j++)if(els[j].dataset.k===selC){var n=st.celle[selC]||{};els[j].setAttribute("style",cs(n));if(w==="clr")els[j].value=""}}
+var dsel=-1,dcell=null,TIPI=["Libero","Sorveglianza","Attività","Torneo","Altro"];
+function docentiPage(){if(dsel>=0&&st.docenti[dsel])return docDett(dsel);return '<h2>Docenti</h2><p class="hint">Aggiungi un docente a mano e imposta il suo orario settimanale. I docenti elencati qui possono registrarsi al sito.</p>'+(st.docenti.length?'<div class="wrap"><table style="min-width:420px"><tr><th>Nome</th><th>Materia</th><th>Ruolo</th><th></th></tr>'+st.docenti.map(function(d,i){return '<tr><td class="t">'+esc(d.nome)+'</td><td class="t">'+esc(d.competenze)+'</td><td class="t">'+esc(d.ruolo)+'</td><td><button class="x" style="color:var(--blue)" onclick="docOpen('+i+')">Apri</button><button class="x" onclick="docDel('+i+')">Elimina</button></td></tr>'}).join("")+'</table></div>':'<p class="hint">Nessun docente.</p>')+'<button class="btn" onclick="docAdd()">Aggiungi docente</button>'}
+function docAdd(){if(!isA())return;st.docenti.push({id:uuid(),nome:"",email:"",competenze:"",ruolo:"Sorvegliante",note:"",orario:{}});dsel=st.docenti.length-1;dcell=null;save();render()}
+function docOpen(i){dsel=i;dcell=null;render()}
+function docDel(i){if(!isA())return;st.docenti.splice(i,1);dsel=-1;save();render()}
+function docSet(k,v){if(!isA())return;st.docenti[dsel][k]=v;save()}
+function docDett(i){var d=st.docenti[i];d.orario=d.orario||{};var ed=isA(),inp=function(k,l,t){return '<label>'+l+'<input type="'+(t||"text")+'" value="'+esc(d[k])+'" '+(ed?'':'readonly ')+'oninput="docSet(\''+k+'\',this.value)"></label>'};
+return '<div class="row"><button class="btn alt" style="margin:0" onclick="dsel=-1;render()">‹ Docenti</button></div><h2>'+esc(d.nome||"Nuovo docente")+'</h2><div class="f">'+inp("nome","Nome e cognome")+inp("email","Email (facoltativa)","email")+inp("competenze","Materia o competenze")+'<label>Ruolo in settimana<select onchange="docSet(\'ruolo\',this.value)">'+["Sorvegliante","Conduce attività","Arbitro o gestione torneo","Supporto o altro"].map(function(r){return '<option'+(d.ruolo===r?" selected":"")+'>'+r+'</option>'}).join("")+'</select></label>'+inp("note","Note")+'</div><h2>Orario settimanale</h2><p class="hint">Tocca una casella per dire cosa fa, con quali classi e a che ora.</p>'+dgrid(i)+dedit(i)}
+function dgrid(i){var d=st.docenti[i],t='<div class="wrap"><table style="min-width:600px"><tr><th>Ora</th>'+GIORNI.map(function(g){return '<th>'+g.slice(0,3)+'</th>'}).join("")+'</tr>';for(var h=1;h<=6;h++){t+='<tr><th>'+h+'ª<br>'+(7+h)+':00</th>'+GIORNI.map(function(g,di){var k=di+"|"+h,c=d.orario[k];return '<td'+(dcell===k?' style="background:var(--bg)"':'')+'><button class="x" style="color:var(--ink);width:100%;text-align:left;min-height:46px;font-size:12px" onclick="dpick(\''+k+'\')">'+(c&&c.t&&c.t!=="Libero"?'<b>'+esc(c.t)+'</b><br>'+esc((c.cl||[]).join(" "))+(c.x?'<br>'+esc(c.x):""):"—")+'</button></td>'}).join("")+'</tr>'}return t+'</table></div>'}
+function dpick(k){dcell=k;render()}
+function dedit(i){if(!dcell)return"";var c=st.docenti[i].orario[dcell]||{},p=dcell.split("|");return '<div class="msg" style="background:var(--sf);border:1px solid var(--ln);color:var(--ink)"><b>'+GIORNI[p[0]]+' · '+p[1]+'ª ora ('+(7+Number(p[1]))+':00)</b><div class="f" style="margin-top:8px"><label>Cosa fa<select onchange="dset(\'t\',this.value)">'+TIPI.map(function(x){return '<option'+(c.t===x?" selected":"")+'>'+x+'</option>'}).join("")+'</select></label><div>Classi: '+(c.cl||[]).map(function(x,j){return '<button class="chip" onclick="drm('+j+')">'+esc(x)+' ✕</button>'}).join(" ")+'</div><label>Aggiungi classe<select onchange="dadd(this.value)"><option value=""></option>'+st.squadre.map(function(s){return '<option>'+esc(s.classe)+'</option>'}).join("")+'</select></label><label>Dettaglio (attività, aula, campo)<input value="'+esc(c.x)+'" oninput="dset(\'x\',this.value)"></label><button class="btn alt" style="margin:0" onclick="dclr()">Svuota casella</button></div></div>'}
+function dobj(){var d=st.docenti[dsel];return d.orario[dcell]||(d.orario[dcell]={t:"",cl:[],x:""})}
+function dset(k,v){if(!isA()||!dcell)return;dobj()[k]=v;save();if(k==="t")render()}
+function dadd(v){if(!isA()||!dcell||!v)return;var c=dobj();c.cl=c.cl||[];if(c.cl.indexOf(v)<0)c.cl.push(v);save();render()}
+function drm(j){if(!isA()||!dcell)return;dobj().cl.splice(j,1);save();render()}
+function dclr(){if(!isA()||!dcell)return;delete st.docenti[dsel].orario[dcell];save();render()}
+var asel=null,selA=0;
+function aStat(a){var en=st.scelte.filter(function(x){return x.a===a.id}),cls={};en.forEach(function(x){var u=st.iscrizioni.filter(function(r){return r.email.toLowerCase()===x.email})[0];if(u&&u.classe)cls[u.classe.toUpperCase()]=1});var k=Object.keys(cls),cap=Number(a.posti)||25;return {n:(st.cnt[a.id]!=null?st.cnt[a.id]:en.length),cl:k.length,clist:k,gr:Math.ceil((st.cnt[a.id]!=null?st.cnt[a.id]:en.length)/cap),ore:(Number(a.ore)||0)*k.length}}
+function attPage(){var a=st.attivita.filter(function(x){return x.id===asel})[0];if(a)return attDett(a);var tot=0,rows=st.attivita.map(function(a){var s=aStat(a);tot+=s.ore;return '<tr><td class="t"><b>'+esc(a.nome||"Senza nome")+'</b></td><td class="t">'+s.n+'</td><td class="t">'+s.cl+'</td><td class="t">'+s.gr+'</td><td class="t">'+esc(a.ore||"—")+'</td><td><button class="x" style="color:var(--blue)" data-v="'+esc(a.id)+'" onclick="attOpen(this.dataset.v)">Apri</button>'+(isA()?'<button class="x" data-v="'+esc(a.id)+'" onclick="attDel(this.dataset.v)">Elimina</button>':'')+'</td></tr>'}).join("");
+return '<h2>Attività</h2><p class="hint">Iscritti, classi richieste e ore necessarie, in base alle iscrizioni degli studenti.</p>'+(rows?'<div class="wrap"><table style="min-width:520px"><tr><th>Attività</th><th>Iscritti</th><th>Classi</th><th>Gruppi</th><th>Ore per classe</th><th></th></tr>'+rows+'</table></div><p class="hint">Ore totali da coprire: '+tot+'</p>':'<p class="hint">Nessuna attività.</p>')+(isA()?'<button class="btn" onclick="attAdd()">Crea attività</button>':'')}
+function attAdd(){if(!isA())return;var a={id:uuid(),nome:"",descrizione:"",spazio:"",materiali:"",ore:"",distr:"Indifferente",posti:"25",docenti:""};st.attivita.push(a);asel=a.id;save();render()}
+function attOpen(id){asel=id;render()}
+function attDel(id){if(!isA())return;st.attivita=st.attivita.filter(function(x){return x.id!==id});st.scelte=st.scelte.filter(function(x){return x.a!==id});asel=null;save();render()}
+function attSet(k,v){if(!isA())return;var a=st.attivita.filter(function(x){return x.id===asel})[0];if(a){a[k]=v;save()}}
+function attDett(a){var s=aStat(a),ed=isA(),inp=function(k,l,t){return '<label>'+l+'<input type="'+(t||"text")+'" value="'+esc(a[k])+'" '+(ed?'':'readonly ')+'oninput="attSet(\'' +k+'\',this.value)"></label>'};
+var en=st.scelte.filter(function(x){return x.a===a.id}).map(function(x){return st.iscrizioni.filter(function(r){return r.email.toLowerCase()===x.email})[0]}).filter(Boolean);
+return '<div class="row"><button class="btn alt" style="margin:0" onclick="asel=null;render()">‹ Attività</button></div><h2>'+esc(a.nome||"Nuova attività")+'</h2><div class="f">'+inp("nome","Nome")+inp("descrizione","Descrizione")+inp("spazio","Spazio o aula richiesti")+inp("materiali","Cosa serve (materiali, attrezzatura)")+inp("ore","Ore necessarie per ogni classe","number")+'<label>Distribuzione delle ore<select '+(ed?'':'disabled ')+'onchange="attSet(\'distr\',this.value)">'+["Indifferente","Tutte nello stesso giorno","Sparse su più giorni"].map(function(x){return '<option'+(a.distr===x?" selected":"")+'>'+x+'</option>'}).join("")+'</select></label>'+inp("posti","Posti per gruppo (max 25)","number")+inp("docenti","Docenti necessari (es. 1 supervisore, 1 secondario)")+'</div><h2>Riepilogo</h2><div class="row"><span class="chip">Iscritti: '+s.n+'</span><span class="chip">Classi richieste: '+s.cl+'</span><span class="chip">Gruppi necessari: '+s.gr+'</span><span class="chip">Ore totali: '+s.ore+'</span></div>'+(s.cl?'<p class="hint">Classi: '+esc(s.clist.join(", "))+'</p>':'')+(en.length?'<div class="wrap"><table style="min-width:360px"><tr><th>Studente</th><th>Classe</th></tr>'+en.map(function(r){return '<tr><td class="t">'+esc(r.nome)+'</td><td class="t">'+esc(r.classe)+'</td></tr>'}).join("")+'</table></div>':'<p class="hint">Nessun iscritto per ora.</p>')}
+function scelte(){var me=st.sess,mine=st.scelte.filter(function(x){return x.email===me}).map(function(x){return x.a});return '<h2>Le mie iscrizioni</h2><p class="hint">Scegli le attività che vuoi seguire.</p>'+(st.attivita.length?'<div class="wrap"><table style="min-width:460px"><tr><th>Attività</th><th>Ore per classe</th><th>Iscritti</th><th></th></tr>'+st.attivita.map(function(a){var s=aStat(a),on=mine.indexOf(a.id)>=0;return '<tr><td class="t"><b>'+esc(a.nome)+'</b><br>'+esc(a.descrizione)+'</td><td class="t">'+esc(a.ore||"—")+'</td><td class="t">'+s.n+'</td><td><button class="x" style="color:var(--blue)" data-v="'+esc(a.id)+'" onclick="togS(this.dataset.v)">'+(on?"Annulla":"Iscriviti")+'</button></td></tr>'}).join("")+'</table></div>':'<p class="hint">Non ci sono ancora attività.</p>')}
+function togS(id){var me=st.sess,ix=-1;st.scelte.forEach(function(x,k){if(x.email===me&&x.a===id)ix=k});if(ix>=0)st.scelte.splice(ix,1);else st.scelte.push({email:me,a:id});save();render()}
+function appelli(){var at=st.attivita;if(!at.length)return '<h2>Appelli</h2><p class="hint">Crea prima un’attività.</p>';if(selA>=at.length)selA=0;var a=at[selA],list=st.scelte.filter(function(x){return x.a===a.id}).map(function(x){return st.iscrizioni.filter(function(r){return r.email.toLowerCase()===x.email})[0]}).filter(Boolean);return '<h2>Appelli</h2><p class="hint">Scegli un’attività e segna presenti e assenti.</p><div class="f"><label>Attività<select onchange="selA=this.value;render()">'+at.map(function(x,i){return '<option value="'+i+'"'+(i==selA?" selected":"")+'>'+esc(x.nome)+'</option>'}).join("")+'</select></label></div>'+(list.length?'<div class="wrap" style="margin-top:10px"><table style="min-width:360px"><tr><th>Studente</th><th>Classe</th><th>Stato</th></tr>'+list.map(function(r){var k=a.id+"|"+r.email.toLowerCase(),s=st.pres[k]===true?"Presente":(st.pres[k]||"");return '<tr><td class="t">'+esc(r.nome)+'</td><td class="t">'+esc(r.classe)+'</td><td><select data-k="'+esc(k)+'" onchange="setP(this.dataset.k,this.value)"><option value=""></option><option'+(s==="Presente"?" selected":"")+'>Presente</option><option'+(s==="Assente"?" selected":"")+'>Assente</option></select></td></tr>'}).join("")+'</table></div>':'<p class="hint">Nessun iscritto.</p>')}
+function cellsOf(cl){var o={};Object.keys(st.celle).forEach(function(k){if(k.indexOf(cl+"|")===0)o[k]=st.celle[k]});return o}
+function ostatOld(cl){var p=st.pub&&st.pub[cl];if(!p)return "Non ancora inviato agli studenti";return JSON.stringify(p.c)===JSON.stringify(cellsOf(cl))?"Inviato il "+p.t:"Modifiche non inviate (ultimo invio: "+p.t+")"}
+function bar(cl){if(isA())return '<div class="row"><button class="btn" style="margin:0" onclick="inviaOrario()">Invia e salva</button><span class="chip" id="ost">'+ostat(cl)+'</span></div>';var p=st.pub&&st.pub[cl];return '<p class="hint">'+(p?"Aggiornato il "+esc(p.t):"Orario non ancora pubblicato.")+'</p>'}
+function inviaOrarioOld(){if(!isA()||gp.length<2)return;var cl=gp[1];st.pub=st.pub||{};st.pub[cl]={c:JSON.parse(JSON.stringify(cellsOf(cl))),t:new Date().toLocaleString("it-IT")};save();render()}
+function upSt(){var e=document.getElementById("ost");if(e&&gp[1])e.textContent=ostat(gp[1])}
+function esciOld(){vista="";st.sess="";modo="login";cur="orario";save();nav();render()}
+function render(){
+
+    if(st.sess && !can(cur)){
+        cur="orario";
+    }
+
+    var f={
+        attivita:attPage,
+        docenti:docentiPage,
+        griglie:griglie,
+        assenze:assenze,
+        scelte:scelte,
+        admins:amministratori,
+        orario:orario,
+        appelli:appelli,
+        torneo:torneo,
+        registrazione:registrazione,
+        controlli:controlli,
+        regole:regole
+    }[cur];
+
+    document.getElementById("app").innerHTML=
+        banner()+(f?f():table(cur));
+}
+var SB_URL="https://hawrxvawuxeiehiuzsmg.supabase.co",SB_KEY="sb_publishable_H1dPFSLVlhqZqepCjT5v1w_pNS5PnwY";
+var sb=supabase.createClient(SB_URL,SB_KEY);
+var uuid=function(){return crypto.randomUUID()};
+var EM2ID={},ID2EM={},snap={},stale={},chan=null,pushT=null,busy=false,again=false,pend=false;
+var authStep="email",authEmail="",authMsg="",authUser=null;
+function msg(t,x){return '<div class="msg '+t+'">'+esc(x)+'</div>'}
+function setStato(m){var e=document.getElementById("sync");if(e)e.textContent="· "+m}
+function isRealAdmin(){var r=ruoloReale();return r==="Creatore"||r==="Amministratore"}
+function mapIds(){EM2ID={};ID2EM={};st.iscrizioni.forEach(function(p){EM2ID[p.email]=p.id;ID2EM[p.id]=p.email})}
+var TORN={partecipante:"Partecipante",giocatore:"Giocatore torneo",studente_docente:"Studente docente"};
+var TB={
+profili:{inn:function(r){st.iscrizioni=r.map(function(p){return {id:p.id,nome:p.nome,email:p.email,classe:p.classe||"",ruolo:TORN[p.ruolo_torneo]||"Partecipante",sito:p.ruolo==="docente"?"Docente":"Studente"}});st.admins=[];var c=r.filter(function(p){return p.ruolo==="creatore"})[0];if(c)st.admins.push(c.email);r.forEach(function(p){if(p.ruolo==="amministratore")st.admins.push(p.email)});mapIds()}},
+attivita:{k:["id"],w:"admin",
+ out:function(){return st.attivita.map(function(a){return {id:a.id,nome:a.nome||"",descrizione:a.descrizione||"",spazio:a.spazio||"",materiali:a.materiali||"",ore:Number(a.ore)||0,distribuzione:a.distr||"Indifferente",posti:Math.min(25,Number(a.posti)||25),docenti:a.docenti||""}})},
+ inn:function(r){st.attivita=r.map(function(a){return {id:a.id,nome:a.nome,descrizione:a.descrizione||"",spazio:a.spazio||"",materiali:a.materiali||"",ore:a.ore?String(a.ore):"",distr:a.distribuzione||"Indifferente",posti:String(a.posti||25),docenti:a.docenti||""}})}},
+squadre:{k:["classe"],w:"admin",
+ out:function(){return st.squadre.filter(function(s){return s.classe}).map(function(s){return {classe:s.classe,gruppo:s.gruppo==="Biennio"?"Biennio":"Triennio",giocatori:Number(s.giocatori)||6,stato:s.stato||"In gara"}})},
+ inn:function(r){st.squadre=r.map(function(s){return {classe:s.classe,gruppo:s.gruppo,giocatori:String(s.giocatori),stato:s.stato}}).sort(function(a,b){return a.classe<b.classe?-1:1})}},
+partite:{k:["id"],w:"admin",
+ out:function(){return st.partite.map(function(p){if(!p.id)p.id=uuid();return {id:p.id,giorno:p.giorno||"",ora:p.ora||"",campo:p.campo||"",squadra_a:p.a||null,squadra_b:p.b||null,punteggio:p.punteggio||"",vincitore:p.vincitore||""}})},
+ inn:function(r){st.partite=r.map(function(p){return {id:p.id,giorno:p.giorno||"",ora:p.ora||"",campo:p.campo||"",a:p.squadra_a||"",b:p.squadra_b||"",punteggio:p.punteggio||"",vincitore:p.vincitore||""}})}},
+orari_uscita:{k:["giorno","gruppo"],w:"admin",
+ out:function(){return st.orari.map(function(o){return {giorno:o.giorno,gruppo:o.gruppo,entrata:o.entrata||"",uscita:o.uscita||""}})},
+ inn:function(r){st.orari=r.map(function(o){return {giorno:o.giorno,gruppo:o.gruppo,entrata:o.entrata||"",uscita:o.uscita||""}})}},
+docenti:{k:["id"],w:"admin",
+ out:function(){return st.docenti.map(function(d){if(!d.id)d.id=uuid();return {id:d.id,nome:d.nome||"",email:d.email||"",competenze:d.competenze||"",ruolo_settimana:d.ruolo||"Sorvegliante",note:d.note||"",orario:d.orario||{}}})},
+ inn:function(r){st.docenti=r.map(function(d){return {id:d.id,nome:d.nome,email:d.email||"",competenze:d.competenze||"",ruolo:d.ruolo_settimana||"Sorvegliante",note:d.note||"",orario:d.orario||{}}})}},
+elenco_studenti:{k:["nome"],w:"admin",
+ out:function(){return st.wlStudenti.filter(function(s){return (s.nome||"").trim()}).map(function(s){return {nome:s.nome.trim()}})},
+ inn:function(r){st.wlStudenti=r.map(function(s){return {nome:s.nome}})}},
+celle:{k:["classe","giorno","ora"],w:"admin",
+ out:function(){var o=[];Object.keys(st.celle).forEach(function(k){var c=st.celle[k],p=k.split("|");if(!(c.t||c.bg!=null||c.fg!=null||c.b))return;o.push({classe:p[0],giorno:Number(p[1]),ora:Number(p[2]),testo:c.t||"",sfondo:c.bg==null?null:c.bg,colore_testo:c.fg==null?null:c.fg,grassetto:!!c.b})});return o},
+ inn:function(r){st.celle={};r.forEach(function(x){st.celle[x.classe+"|"+x.giorno+"|"+x.ora]={t:x.testo||"",bg:x.sfondo,fg:x.colore_testo,b:x.grassetto}})}},
+celle_pubbliche:{
+ inn:function(r){st.pub={};r.forEach(function(x){var p=st.pub[x.classe]||(st.pub[x.classe]={c:{},t:""});p.c[x.classe+"|"+x.giorno+"|"+x.ora]={t:x.testo||"",bg:x.sfondo,fg:x.colore_testo,b:x.grassetto};if(x.pubblicato_il)p.t=new Date(x.pubblicato_il).toLocaleString("it-IT")})}},
+scelte:{k:["profilo_id","attivita_id"],w:"self",
+ out:function(){return st.scelte.filter(function(x){return x.email===st.sess&&EM2ID[x.email]}).map(function(x){return {profilo_id:EM2ID[x.email],attivita_id:x.a}})},
+ inn:function(r){st.scelte=r.map(function(x){return {email:ID2EM[x.profilo_id]||"",a:x.attivita_id}}).filter(function(x){return x.email})}},
+presenze:{k:["attivita_id","profilo_id"],w:"doc",
+ out:function(){var o=[];Object.keys(st.pres).forEach(function(k){var v=st.pres[k],i=k.indexOf("|"),a=k.slice(0,i),em=k.slice(i+1);if(!(v===true||v==="Presente"||v==="Assente")||!EM2ID[em])return;o.push({attivita_id:a,profilo_id:EM2ID[em],stato:v==="Assente"?"assente":"presente"})});return o},
+ inn:function(r){st.pres={};r.forEach(function(x){var em=ID2EM[x.profilo_id];if(em)st.pres[x.attivita_id+"|"+em]=x.stato==="assente"?"Assente":"Presente"})}}
+};
+var ORDER=["squadre","attivita","docenti","elenco_studenti","orari_uscita","partite","scelte","presenze","celle"];
+function rk(t,r){return TB[t].k.map(function(c){return r[c]}).join("|")}
+function idx(t,rows){var o={};rows.forEach(function(r){o[rk(t,r)]=r});return o}
+function canW(t){var w=TB[t].w,r=ruoloReale();if(w==="admin")return r==="Creatore"||r==="Amministratore";if(w==="doc")return r!==""&&r!=="Studente";if(w==="self")return r!=="";return false}
+function schedPush(){if(!st.sess)return;clearTimeout(pushT);pushT=setTimeout(push,700)}
+async function push(){
+ if(busy){again=true;return}
+ busy=true;pushT=null;var scelteCh=false;
+ try{
+  for(var i=0;i<ORDER.length;i++){var t=ORDER[i];if(!canW(t))continue;
+   var cur=idx(t,TB[t].out()),old=snap[t]||{},up=[],del=[];
+   Object.keys(cur).forEach(function(k){if(!old[k]||JSON.stringify(old[k])!==JSON.stringify(cur[k]))up.push(cur[k])});
+   Object.keys(old).forEach(function(k){if(!cur[k])del.push(old[k])});
+   for(var j=0;j<del.length;j++){var q=sb.from(t).delete();TB[t].k.forEach(function(c){q=q.eq(c,del[j][c])});var r=await q;if(r.error)throw r.error}
+   if(up.length){var r2=await sb.from(t).upsert(up,{onConflict:TB[t].k.join(",")});if(r2.error)throw r2.error}
+   if(t==="scelte"&&(up.length||del.length))scelteCh=true;
+   snap[t]=cur}
+  setStato("salvato")
+ }catch(e){setStato("errore: "+(e.message||e))}
+ busy=false;
+ if(scelteCh){await loadCnt();safeRender()}
+ if(again){again=false;schedPush();return}
+ var s=Object.keys(stale);stale={};for(var n=0;n<s.length;n++)await reloadT(s[n])
+}
+async function loadT(t){var s=TB[t];if(!s)return;var r=await sb.from(t).select("*");if(r.error){console.warn(t,r.error.message);return}
+ var rows=r.data||[];
+ if((t==="squadre"||t==="orari_uscita")&&!rows.length&&isRealAdmin()){snap[t]={};return}
+ s.inn(rows);if(s.out)snap[t]=idx(t,s.out());if(t==="profili")mapIds()}
+async function loadCnt(){var r=await sb.rpc("conteggio_iscritti");st.cnt={};if(!r.error)(r.data||[]).forEach(function(x){st.cnt[x.attivita_id]=Number(x.n)})}
+async function loadAll(){await loadT("profili");var L=["attivita","squadre","partite","orari_uscita","scelte","celle_pubbliche"];if(ruoloReale()!=="Studente")L.push("presenze");if(isRealAdmin())L=L.concat(["docenti","elenco_studenti","celle"]);for(var i=0;i<L.length;i++)await loadT(L[i]);await loadCnt()}
+async function reloadT(t){await loadT(t);if(t==="scelte")await loadCnt();safeRender()}
+function safeRender(){var a=document.activeElement;if(a&&/INPUT|SELECT|TEXTAREA/.test(a.tagName)&&document.getElementById("app").contains(a)){pend=true;return}render()}
+document.addEventListener("focusout",function(){if(pend){pend=false;setTimeout(safeRender,120)}});
+function subscribe(){if(chan)return;chan=sb.channel("sds").on("postgres_changes",{event:"*",schema:"public"},function(p){var t=p.table;if(!TB[t]||t==="profili")return;if(pushT||busy){stale[t]=1;return}reloadT(t)}).subscribe()}
+async function afterLogin(user){authUser=user;var email=(user.email||"").toLowerCase();
+ var p=await sb.from("profili").select("id").eq("id",user.id).maybeSingle();
+ if(p.error){authMsg=msg("e",p.error.message);render();return}
+ if(!p.data){authStep="profilo";authEmail=email;render();return}
+ st.sess=email;await loadAll();subscribe();schedPush();cur="orario";nav();render()}
+async function init(){try{var r=await sb.auth.getSession();if(r.data&&r.data.session)await afterLogin(r.data.session.user);else{await loadAll();subscribe();nav();render()}sb.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT"&&st.sess)location.reload()})}catch(e){authMsg=msg("e",e.message);render()}}
+function accesso(){var h='<h2>Entra nella Settimana dello Studente</h2>';
+ if(authStep==="email")return h+'<p class="hint">Inserisci la tua email: ti mandiamo un codice di accesso. Al primo accesso completerai la registrazione.</p><div class="f"><label>Email istituzionale<input id="ae" type="email" autocomplete="email" value="'+esc(authEmail)+'"></label><button class="btn" onclick="sendCode()">Invia codice</button></div>'+authMsg;
+ if(authStep==="code")return h+'<p class="hint">Abbiamo mandato un codice a '+esc(authEmail)+'. Inseriscilo qui.</p><div class="f"><label>Codice<input id="ac" inputmode="numeric" autocomplete="one-time-code"></label><button class="btn" onclick="verifyCode()">Conferma</button><button class="btn alt" onclick="authStep=\'email\';authMsg=\'\';render()">Cambia email</button></div>'+authMsg;
+ return h+'<p class="hint">Completa la registrazione per '+esc(authEmail)+'.</p><div class="f"><label>Nome<input id="rn"></label><label>Cognome<input id="rs"></label><label>Classe (per esempio 3A)<input id="rc"></label><label>Ruolo nel torneo<select id="rr"><option value="partecipante">Partecipante</option><option value="giocatore">Giocatore torneo</option><option value="studente_docente">Studente docente</option></select></label><button class="btn" onclick="completeReg()">Registrati</button></div>'+authMsg}
+async function sendCode(){var em=document.getElementById("ae").value.trim().toLowerCase();if(em.indexOf("@")<1){authMsg=msg("e","Inserisci un'email valida.");return render()}
+ authEmail=em;authMsg=msg("o","Invio in corso...");render();
+ var r=await sb.auth.signInWithOtp({email:em,options:{shouldCreateUser:true}});
+ if(r.error){authMsg=msg("e",r.error.message);authStep="email"}else{authMsg="";authStep="code"}render()}
+async function verifyCode(){var c=document.getElementById("ac").value.trim();if(!c){authMsg=msg("e","Inserisci il codice.");return render()}
+ var r=await sb.auth.verifyOtp({email:authEmail,token:c,type:"email"});
+ if(r.error){authMsg=msg("e",r.error.message);return render()}
+ authMsg="";await afterLogin(r.data.user)}
+async function completeReg(){var n=document.getElementById("rn").value.trim(),s=document.getElementById("rs").value.trim(),c=document.getElementById("rc").value.trim(),t=document.getElementById("rr").value;
+ if(!n||!s){authMsg=msg("e","Scrivi nome e cognome.");return render()}
+ var r=await sb.rpc("registra_profilo",{p_nome:n+" "+s,p_classe:c,p_torneo:t});
+ if(r.error){authMsg=msg("e",r.error.message);return render()}
+ authMsg="";await afterLogin(authUser)}
+async function esci(){await sb.auth.signOut();location.reload()}
+async function togA(e){if(!isA())return;var on=st.admins.indexOf(e)>=0;var r=await sb.rpc("imposta_ruolo",{p_email:e,p_ruolo:on?"studente":"amministratore"});if(r.error){alert(r.error.message);return}await loadT("profili");render()}
+function nrm(o){var r={};Object.keys(o).sort().forEach(function(k){var c=o[k];if(!(c.t||c.bg!=null||c.fg!=null||c.b))return;r[k]=[c.t||"",c.bg==null?null:c.bg,c.fg==null?null:c.fg,!!c.b]});return JSON.stringify(r)}
+function ostat(cl){var p=st.pub&&st.pub[cl];if(!p)return "Non ancora inviato agli studenti";return nrm(p.c)===nrm(cellsOf(cl))?"Inviato il "+p.t:"Modifiche non inviate (ultimo invio: "+p.t+")"}
+async function inviaOrario(){if(!isA()||gp.length<2)return;var cl=gp[1];clearTimeout(pushT);while(busy)await new Promise(function(r){setTimeout(r,100)});await push();
+ var r=await sb.rpc("pubblica_orario",{p_classe:cl});if(r.error){alert(r.error.message);return}await loadT("celle_pubbliche");render()}
+
+nav();render();init();
+</script>
+</body>
+</html>
